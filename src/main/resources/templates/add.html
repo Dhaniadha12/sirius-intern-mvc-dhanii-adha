@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${msg}">Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Tambah MObil</h2>
+        <div>
+            <form th:object="${mobils}" method="post" th:action="@{/save}">
+                <div class="form-group">
+                    <label>merek</label>
+                    <input type="text" class="form-control" th:field="*{merek}"/>
+                </div>
+                <div class="form-group">
+                    <label>model</label>
+                    <input type="text" class="form-control" th:field="*{model}"/>
+                </div>
+                              
+                <div class="form-group">
+                    <label>warna</label>
+                    <input type="text" class="form-control" th:field="*{warna}"/>
+                </div>
+                <div class="form-group">
+                    <label>jumlah_pintu</label>
+                    <input type="number" class="form-control" th:field="*{jumlahPintu}"/>
+                </div>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${msg}">Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Tambah Mobil</h2>
+        <div>
+            <form th:object="${sedan}" method="post" th:action="@{/sedan/save}">
+                <div class="form-group">
+                    <label>ID Mobil</label>
+                    <select class="form-control" th:field="*{mobil.id}">
+                        <option th:each="m : ${listMobil}" th:value="${m.id}" th:text="${m.merek}"></option>
+                    </select>
+                </div>
+                              
+                <div class="form-group">
+                    <label>Bahan Bakar</label>
+                    <input type="text" class="form-control" th:field="*{bahan_bakar}"/>
+                </div>
+                <div class="form-group">
+                    <label>Kapasitas</label>
+                    <input type="number" class="form-control" th:field="*{kapasitas}"/>
+                </div>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

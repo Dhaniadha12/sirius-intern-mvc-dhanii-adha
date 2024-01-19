@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${msg}">Document</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id_mobil</th>
+                    <th>kecepatan</th>
+                    <th>transmisi</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${porsches}">
+                    <td th:text="${p != null ? p.id : ''}"></td>
+                    <td th:text="${p != null ? p.mobil.id : ''}"></td>
+                    <td th:text="${p != null ? p.kecepetan : ''}"></td>
+                    <td th:text="${p != null ? p.transmisi : ''}"></td>
+                    <td>
+                        <a class="" th:href="@{'/porche/edit/'+${p.id}}">edit</a>
+                        <a class="" th:href="@{'/porche/delete/'+${p.id}}">delete</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

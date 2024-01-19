@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${msg}">Document</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>merek</th>
+                    <th>model</th>
+                    <th>warna</th>
+                    <th>jumlah_pintu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="m : ${mobils}">
+                    <td th:text="${m != null ? m.id : ''}"></td>
+                    <td th:text="${m != null ? m.merek : ''}"></td>
+                    <td th:text="${m != null ? m.model : ''}"></td>
+                    <td th:text="${m != null ? m.warna : ''}"></td>
+                    <td th:text="${m != null ? m.jumlahPintu : ''}"></td>
+                    <td>
+                        <a class="" th:href="@{'edit/'+${m.id}}">edit</a>
+                        <a class="" th:href="@{'delete/'+${m.id}}">delete</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
